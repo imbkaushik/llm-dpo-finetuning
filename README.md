@@ -277,9 +277,8 @@ response = model.generate(tokenizer.encode(prompt, return_tensors="pt"))
 
 DPO operates on the principle of directly optimizing the policy using preference data without requiring an explicit reward model. The core objective function is:
 
-```
-L_DPO = -E[(x,y_w,y_l)~D][log σ(β log π_θ(y_w|x)/π_ref(y_w|x) - β log π_θ(y_l|x)/π_ref(y_l|x))]
-```
+`L_{DPO} = -\mathbb{E}_{(x, y_w, y_l) \sim D}\left[\log \sigma\left(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}\right)\right]`
+
 
 Where:
 
