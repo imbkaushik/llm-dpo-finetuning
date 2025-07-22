@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 # Fine-Tuning an LLM with Direct Preference Optimization (DPO)
 
 ## Project Description
