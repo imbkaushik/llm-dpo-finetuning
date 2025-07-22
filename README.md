@@ -315,7 +315,7 @@ The implementation leverages several open-source libraries and pre-trained model
 
 ## References
 
-1. **DPO Paper:** Rafailov, R., et al. "Direct Preference Optimization: Your Language Model is Secretly a Reward Model." arXiv preprint arXiv:2305.18290 (2023).[Link](https://arxiv.org/abs/2305.18290)
+1. **DPO Paper:** Rafailov, R., et al. "Direct Preference Optimization: Your Language Model is Secretly a Reward Model." arXiv preprint arXiv:2305.18290 (2023). [Link](https://arxiv.org/abs/2305.18290)
 2. **Hugging Face TRL Documentation:** [https://huggingface.co/docs/trl](https://huggingface.co/docs/trl)
 3. **Qwen Model Documentation:** [https://huggingface.co/Qwen](https://huggingface.co/Qwen)
 
