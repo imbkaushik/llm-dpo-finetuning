@@ -51,6 +51,5 @@ models/
 *.tar.gz
 
 # Ignore visual and notebook outputs
-assets/
 notebooks/
 results.ipynb
