@@ -313,11 +313,11 @@ The implementation leverages several open-source libraries and pre-trained model
 ## References
 
 1. **Primary Reference:** [Fine-Tuning LLMs on Human Feedback (RLHF \& DPO)](https://shawhin.medium.com/fine-tuning-llms-on-human-feedback-rlhf-dpo-1c693dbc4cbf) - Shaw Talebi
-2. **DPO Paper:** Rafailov, R., et al. "Direct Preference Optimization: Your Language Model is Secretly a Reward Model." arXiv preprint arXiv:2305.18290 (2023).
+2. **DPO Paper:** Rafailov, R., et al. "Direct Preference Optimization: Your Language Model is Secretly a Reward Model." arXiv preprint arXiv:2305.18290 (2023).[Link](https://arxiv.org/abs/2305.18290)
 3. **Hugging Face TRL Documentation:** [https://huggingface.co/docs/trl](https://huggingface.co/docs/trl)
 4. **Qwen Model Documentation:** [https://huggingface.co/Qwen](https://huggingface.co/Qwen)
 
-**Project Status:** Production Ready – Publicly deployed via Hugging Face Hub for real-world inference
-**License:** MIT
-**Maintainer:** Bhaswata Kaushik
+**Project Status:** Production Ready – Publicly deployed via Hugging Face Hub for real-world inference  
+**License:** MIT  
+**Maintainer:** Bhaswata Kaushik  
 **Last Updated:** July 2025
