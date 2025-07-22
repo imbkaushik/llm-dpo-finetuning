@@ -16,7 +16,7 @@ The implementation builds upon established research in preference learning and p
 - [Training Process](#training-process)
 - [Evaluation and Results](#evaluation-and-results)
 - [Model and Dataset](#model-and-dataset)
-- [Screenshots and Visualizations](#screenshots-and-visualizations)
+- [Visualizations](#visualizations)
 - [Technical Implementation](#technical-implementation)
 - [Acknowledgments](#acknowledgments)
 - [References](#references)
@@ -56,7 +56,7 @@ The project is organized into numbered scripts that should be executed sequentia
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.9 or higher
 - CUDA-compatible GPU (recommended for training)
 - Hugging Face account for model and dataset hosting
 - API keys for Together AI and Google Gemini
@@ -67,7 +67,7 @@ The project is organized into numbered scripts that should be executed sequentia
 1. **Clone the repository:**
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/imbkaushik/llm-dpo-finetuning.git
 cd llm-dpo-finetuning
 ```
 
@@ -224,11 +224,11 @@ The fine-tuned model consistently produces more concise, impactful titles that b
 
 ### Hugging Face Resources
 
-- **Dataset:** `[HF_USERNAME]/youtube-titles-dpo`
+- **Dataset:** [`imbkaushik/youtube-titles-dpo`](https://huggingface.co/datasets/imbkaushik/youtube-titles-dpo)
     - Contains formatted preference pairs for DPO training
     - Includes prompt templates and chosen/rejected responses
     - Split into training and validation sets
-- **Fine-tuned Model:** `[HF_USERNAME]/Qwen2.5-0.5B-DPO-YouTube-Titles`
+- **Fine-tuned Model:** [`imbkaushik/Qwen2.5-0.5B-DPO-YouTube-Titles`](https://huggingface.co/imbkaushik/Qwen2.5-0.5B-DPO-YouTube-Titles)
     - Based on Qwen2.5-0.5B-Instruct architecture
     - Optimized for YouTube title generation
     - Compatible with standard Hugging Face transformers library
@@ -253,23 +253,34 @@ response = model.generate(tokenizer.encode(prompt, return_tensors="pt"))
 ```
 
 
-## Screenshots and Visualizations
+## Visualizations
 
 ### Training Progress
 
-*[Placeholder: Training loss curves showing DPO convergence]*
+The training loss curves demonstrate effective DPO convergence, with both training and validation losses decreasing consistently across epochs. The model shows strong learning dynamics with training loss dropping from 0.624 to 0.510 and validation loss reducing from 0.591 to 0.569, indicating successful preference alignment without overfitting.
+
+![Training Progress Visualization](assets/Training_Progress_Visualization.png)
+*Figure: Training loss curves showing convergence of DPO fine-tuning.*
+
+---
 
 ### Reward Trends
 
-*[Placeholder: Visualization of chosen vs rejected rewards over training steps]*
+The reward trends clearly illustrate the model's improved ability to distinguish between preferred and non-preferred responses. Throughout training, chosen responses consistently maintain higher reward values than rejected ones, with the gap widening from epoch 1 to epoch 2, demonstrating the model's enhanced preference learning capabilities.
 
-### Model Comparison
+![Reward Trends Visualization](assets/Reward_Trends_Visualization.png)
+*Figure: Visualization of chosen vs rejected rewards over training steps.*
 
-*[Placeholder: Side-by-side comparison of generated titles]*
+---
 
 ### Evaluation Metrics
 
-*[Placeholder: Bar charts showing improvement in key metrics]*
+The comprehensive metrics analysis showcases significant improvements across key performance indicators, with reward accuracy increasing from 65% to 72.5% and reward margins expanding from 0.296 to 0.394. These quantitative improvements, combined with a 18.3% reduction in training loss, validate the effectiveness of the DPO fine-tuning approach for preference-based optimization.
+
+![Evaluation Metrics Bar Chart](assets/Evaluation_Metrics_Bar_Chart.png)
+*Figure: Bar chart showing improvements in key evaluation metrics.*
+
+
 
 ## Technical Implementation
 
@@ -277,17 +288,9 @@ response = model.generate(tokenizer.encode(prompt, return_tensors="pt"))
 
 DPO operates on the principle of directly optimizing the policy using preference data without requiring an explicit reward model. The core objective function is:
 
-`L_{DPO} = -\mathbb{E}_{(x, y_w, y_l) \sim D}\left[\log \sigma\left(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}\right)\right]`
+![DPO Loss Equation](assets/dpo_equation.png)
 
-
-Where:
-
-- `π_θ` is the policy being optimized
-- `π_ref` is the reference model (frozen base model)
-- `β` is the temperature parameter
-- `y_w` and `y_l` are the winning and losing responses
-- `σ` is the sigmoid function
-
+*Figure: DPO loss function illustration. Source: [Original Paper](https://arxiv.org/abs/2305.18290)*
 
 ### Key Implementation Features
 
@@ -314,7 +317,7 @@ The implementation leverages several open-source libraries and pre-trained model
 3. **Hugging Face TRL Documentation:** [https://huggingface.co/docs/trl](https://huggingface.co/docs/trl)
 4. **Qwen Model Documentation:** [https://huggingface.co/Qwen](https://huggingface.co/Qwen)
 
-**Project Status:** Production Ready
+**Project Status:** Production Ready – Publicly deployed via Hugging Face Hub for real-world inference
 **License:** MIT
-**Maintainer:** [Your Name]
+**Maintainer:** Bhaswata Kaushik
 **Last Updated:** July 2025
