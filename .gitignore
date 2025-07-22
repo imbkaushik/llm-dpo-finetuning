@@ -1,0 +1,51 @@
+# Virtual Environment
+venv/
+venvllm/
+
+# Environment Variables
+.env
+.env.*
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# MacOS
+.DS_Store
+
+# Logs and Runtime Files
+*.log
+*.out
+*.err
+*.pid
+
+# VSCode/Editor Files
+.vscode/
+*.swp
+*.swo
+
+# Data Files - Exclude generated/intermediate files
+data/idea-title_pairs.csv
+data/idea-title_pairs-preferences.csv
+data/preferences.csv
+data/title_eval-checkpoint_*.csv
+
+# Model Artifacts
+models/
+*.pt
+*.bin
+*.ckpt
+*.h5
+*.onnx
+
+# Other files to ignore
+*.tmp
+*.bak
+*.old
+*.zip
+*.tar.gz
